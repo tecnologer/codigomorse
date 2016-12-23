@@ -4,10 +4,10 @@
 Que en tiempos del telegrafo eran pulsos electricos, un punto era un pulso corto y un guion un pulso largo.
 </p>
 <p>
-	Aqui tomo el arbol del codigo morse y lo recorro bajo la siguiente logica:	
-	- un guion, es hacia el brazo izquierdo
-	- un punto, es hacia el brazo derecho
-
+	Aqui tomo el arbol del codigo morse y lo recorro bajo la siguiente logica:<br>	
+	<b>*</b> un guion, es hacia el brazo izquierdo<br>
+	<b>*</b> un punto, es hacia el brazo derecho<br>
+	<br>
 	Aqui una imagen del arbol de codigo morse (Fuente: Wikipedia):
 	<img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Morse_code_tree3.png" width="100%">
 </p>
