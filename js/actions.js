@@ -23,7 +23,7 @@
 	function decodeMorse(){		
 		var message ="";
 		
-		if(!morseMessage.length){
+		if(!morseMessage.length || inputMorse.value!==morseMessage.join("1")){
 			morseMessage = inputMorse.value.split("|");
 		}
 
@@ -59,7 +59,7 @@
 	function isValidCode(event){
 		var keyCode = event.keyCode || event.which;
 		var keyAllowed = [13,8,116,36,35,37,39];
-		
+
 		if(keyAllowed.indexOf(keyCode)===-1 && event.key!=="-" &&  event.key!=="." && event.key!=="|"){
 			event.preventDefault();
 		}
