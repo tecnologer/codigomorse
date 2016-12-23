@@ -4,13 +4,19 @@
 	var morseMessage=[];
 
 	function addCode(){
-		morseMessage.push(inputMorse.value);
+		if(!inputMorse.value.match(/[^.-]/g)){
+			morseMessage.push(inputMorse.value);
 
-		var li=document.createElement("li");
-		li.innerHTML = "<span style='font-size: x-large;'>"+inputMorse.value+"</span>";
-		ul.appendChild(li);
+			var li=document.createElement("li");
+			li.innerHTML = "<span style='font-size: x-large;'>"+inputMorse.value+"</span>";
+			ul.appendChild(li);
 
-		inputMorse.value="";
+			inputMorse.value="";			
+		}
+		else{
+			alert("Contiene caracteres invalidos, favor de revisar la informacion");
+		}
+
 		inputMorse.focus();
 	}
 
@@ -34,6 +40,7 @@
 					morseAux = morseAux && morseAux.rigth;
 				}
 
+
 				if(morseAux){
 					possChar.push(morseAux.data);
 				}
@@ -51,8 +58,9 @@
 
 	function isValidCode(event){
 		var keyCode = event.keyCode || event.which;
-
-		if(keyCode !== 13 && keyCode !==8 && keyCode!==116 && event.key!=="-" &&  event.key!=="." && event.key!=="|"){
+		var keyAllowed = [13,8,116,36,35,37,39];
+		
+		if(keyAllowed.indexOf(keyCode)===-1 && event.key!=="-" &&  event.key!=="." && event.key!=="|"){
 			event.preventDefault();
 		}
 		else if(keyCode === 13){
