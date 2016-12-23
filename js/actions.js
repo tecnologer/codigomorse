@@ -16,13 +16,14 @@
 
 	function decodeMorse(){		
 		var message ="";
-
+		
 		if(!morseMessage.length){
 			morseMessage = inputMorse.value.split("|");
 		}
 
 		for(var x=0;x<morseMessage.length;x++){
 			var input = morseMessage[x].split("");
+			var possChar = [];
 
 			var morseAux = _MORSE_CODE_;
 			for(var i=0;i<input.length;i++){
@@ -32,9 +33,16 @@
 				else if(input[i]==="-"){
 					morseAux = morseAux && morseAux.rigth;
 				}
+
+				if(morseAux){
+					possChar.push(morseAux.data);
+				}
+				else{
+					break;
+				}
 			}
 
-			message+=morseAux.data || "?";
+			message+= morseAux && morseAux.data || JSON.stringify(possChar).replace(/["]/g,"");
 		}
 
 		// console.log(message);
