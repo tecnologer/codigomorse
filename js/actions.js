@@ -52,7 +52,7 @@
 	function isValidCode(event){
 		var keyCode = event.keyCode || event.which;
 
-		if(keyCode !== 13 && keyCode !==8 && keyCode!==116 && event.key!=="-" &&  event.key!=="."){
+		if(keyCode !== 13 && keyCode !==8 && keyCode!==116 && event.key!=="-" &&  event.key!=="." && event.key!=="|"){
 			event.preventDefault();
 		}
 		else if(keyCode === 13){

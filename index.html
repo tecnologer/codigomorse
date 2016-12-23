@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Morse Code translator</title>
-	
+    <title>Morse Code translator</title>
 </head>
+
 <body>
-	<div>
-		Escribe cada conjunto de caracteres de guiones y/o puntos para formar una letra y presiona enter (puedes ayudarte de la imagen de abajo), cuando termines la oracion, presiona el boton traducir:
-	</div>
-	<div><input type="text" id="morseInput"></div>
-	<div><label id="message"></label></div>
-	<div><button id="btnTraducir">Traducir</button><button id="btnLimpiar">Limpiar</button></div>
-	<div>
-		<fieldset>
-			<legend>Codigo morse</legend>
-			<ul id="ulCodigo"></ul>
-		</fieldset>
-	</div>
-	<fieldset>
-		<legend>Ayuda</legend>
-		<img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/International_Morse_code.png">
-		<img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Morse_code_tree3.png" width="100%">
-	</fieldset>
-</body>	
-	<script type="text/javascript" src="js/morse_code.js"></script>
-	<script type="text/javascript" src="js/actions.js"></script>
+    <div>
+        Escribe cada conjunto de caracteres de guiones y/o puntos para formar una letra y presiona enter (puedes ayudarte de la imagen de abajo), cuando termines la oracion, presiona el boton traducir:
+    </div>
+    <div>
+        <input type="text" id="morseInput">
+    </div>
+    <div style="font-size: 17pt;">
+        <label><b>Traduccion:</b> <span id="message"></span></label>
+    </div>
+    <div>
+        <button id="btnTraducir">Traducir</button>
+        <button id="btnLimpiar">Limpiar</button>
+    </div>
+    <div>
+        <fieldset>
+            <legend>Codigo morse</legend>
+            <ul id="ulCodigo"></ul>
+        </fieldset>
+    </div>
+    <fieldset>
+        <legend>Ayuda</legend>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/International_Morse_code.png">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Morse_code_tree3.png" width="100%">
+    </fieldset>
+</body>
+<script type="text/javascript" src="js/morse_code.js"></script>
+<script type="text/javascript" src="js/actions.js"></script>
+
 </html>
