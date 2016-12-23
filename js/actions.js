@@ -23,7 +23,7 @@
 	function decodeMorse(){		
 		var message ="";
 		
-		if(!morseMessage.length || inputMorse.value!==morseMessage.join("1")){
+		if(!morseMessage.length || inputMorse.value!==morseMessage.join("|")){
 			morseMessage = inputMorse.value.split("|");
 		}
 
