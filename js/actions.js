@@ -16,6 +16,11 @@
 
 	function decodeMorse(){		
 		var message ="";
+
+		if(!morseMessage.length){
+			morseMessage = inputMorse.value.split("|");
+		}
+
 		for(var x=0;x<morseMessage.length;x++){
 			var input = morseMessage[x].split("");
 
