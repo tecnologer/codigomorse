@@ -60,8 +60,8 @@
 	function isValidCode(event){
 		var keyCode = event.keyCode || event.which;
 		var keyAllowed = [13,8,116,36,35,37,39];
-
-		if(keyAllowed.indexOf(keyCode)===-1 && event.key!=="-" &&  event.key!=="." && event.key!=="|"){
+		
+		if(keyAllowed.indexOf(keyCode)===-1 && event.key!=="-" &&  event.key!=="." && event.key!=="|" && !isCopy_Paste(event)){
 			event.preventDefault();
 		}
 		else if(keyCode === 13){
@@ -74,6 +74,10 @@
 		inputMorse.value="";
 		ul.innerHTML = "";
 		document.getElementById("message").innerHTML = "";
+	}
+
+	function isCopy_Paste(e){
+		return e.ctrlKey && (e.key==="c" || e.key==="v" || e.key==="x" || e.key==="z");
 	}
 	inputMorse.addEventListener("keydown",isValidCode);
 	document.getElementById("btnTraducir").addEventListener("click",decodeMorse);
