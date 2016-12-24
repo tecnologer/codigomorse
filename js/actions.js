@@ -22,13 +22,14 @@
 
 	function decodeMorse(){		
 		var message ="";
+		var mmCopy=[];
+		if(inputMorse.value!=="" && inputMorse.value!==morseMessage.join("|"))
+			mmCopy = inputMorse.value.split("|");
 		
-		if(!morseMessage.length || inputMorse.value!==morseMessage.join("|")){
-			morseMessage = inputMorse.value.split("|");
-		}
+		mmCopy = mmCopy.concat(morseMessage);
 
-		for(var x=0;x<morseMessage.length;x++){
-			var input = morseMessage[x].split("");
+		for(var x=0;x<mmCopy.length;x++){
+			var input = mmCopy[x].split("");
 			var possChar = [];
 
 			var morseAux = _MORSE_CODE_;
