@@ -43,4 +43,17 @@ app.controller('ctrl', ['$scope', function($scope){
 		// document.getElementById("message").innerHTML = message;
 		$scope.alphabetArea = message;
 	});
+
+	$scope.isValidCode = function(event){
+		var keyCode = event.keyCode || event.which;
+		var keyAllowed = [13,8,116,36,35,37,39,38,40];
+		
+		if(keyAllowed.indexOf(keyCode)===-1 && event.key!=="-" &&  event.key!=="." && event.key!=="|" && !isCopy_Paste(event)){
+			event.preventDefault();
+		}	
+	}
 }]);
+
+function isCopy_Paste(e){
+	return e.ctrlKey && (e.key==="c" || e.key==="v" || e.key==="x" || e.key==="z" || e.key==="e" || e.key==="a");
+}

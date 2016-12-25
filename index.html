@@ -24,7 +24,7 @@
 				    <div class="form-group">
 				    	<div class="col-md-5">
 				    		<label for="">Codigo Morse</label>
-				    		<textarea class="form-control" ng-model="morseArea" rows="10"></textarea>
+				    		<textarea class="form-control" ng-model="morseArea" rows="10" ng-keydown="isValidCode($event)"></textarea>
 				    	</div>
 				    	<div class="col-md-1">
 				    		<div class="col-md-12">
