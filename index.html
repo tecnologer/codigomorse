@@ -1,41 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="MorseTranslator">
 
 <head>
     <title>Morse Code translator</title>
     <link rel="shortcut icon" href="img/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <style>
+    	textarea{
+    		resize: none;
+    	}
+    </style>
 </head>
 
-<body>
-    <div>
-        Escribe cada conjunto de caracteres de guiones y/o puntos para formar una letra y presiona enter (puedes ayudarte de la imagen de abajo), cuando termines la oracion, presiona el boton traducir:
-    </div>
-    <div>
-        <input type="text" id="morseInput">
-    </div>
-    <div style="font-size: 17pt;">
-        <label><b>Traduccion:</b> <span id="message"></span></label>
-    </div>
-    <div>
-        <button id="btnTraducir">Traducir</button>
-        <button id="btnLimpiar">Limpiar</button>
-    </div>
-    <div>
-        <fieldset>
-            <legend>Codigo morse</legend>
-            <ul id="ulCodigo"></ul>
-        </fieldset>
-    </div>
-    <fieldset>
-        <legend>Ayuda</legend>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/International_Morse_code.png">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Morse_code_tree3.png" width="100%">
-        <p>
-        	Codigo fuente en: <a href="https://github.com/Tecnologer/codigomorse">https://github.com/Tecnologer/codigomorse</a>
-        </p>
-    </fieldset>
+<body ng-controller="ctrl">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+	            <div class="form-horizontal">
+	            	<div class="form-group">
+	            		Cada linea en el area de texto, representa una letra en codigo morse:
+	            	</div>
+				    <div class="form-group">
+				    	<div class="col-md-5">
+				    		<label for="">Codigo Morse</label>
+				    		<textarea class="form-control" ng-model="morseArea" rows="10"></textarea>
+				    	</div>
+				    	<div class="col-md-1">
+				    		<div class="col-md-12">
+				    			<i class="glyphicon glyphicon-retweet"></i>
+				    		</div>
+				    	</div>
+				    	<div class="col-md-5">
+				    		<label for="">Alfabeto Latino</label>
+				    		<textarea class="form-control" ng-model="alphabetArea" rows="10" disabled></textarea>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<fieldset>
+					        <legend>Ayuda</legend>
+					        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/International_Morse_code.png">
+					        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Morse_code_tree3.png" width="100%">
+					        <p>
+					        	Codigo fuente en: <a href="https://github.com/Tecnologer/codigomorse">https://github.com/Tecnologer/codigomorse</a>
+					        </p>
+					    </fieldset>
+				    </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>    
 </body>
 <script type="text/javascript" src="js/morse_code.js"></script>
-<script type="text/javascript" src="js/actions.js"></script>
+<!-- <script type="text/javascript" src="js/actions.js"></script> -->
+<script type="text/javascript" src="js/actions_angular.js"></script>
 
 </html>
