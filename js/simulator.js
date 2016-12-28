@@ -13,14 +13,14 @@ simulator.controller('ctrlSimulator', ['$scope',"$interval", function($scope, $i
 
     var ctx = canvas.getContext("2d");
     var imgTree = new Image();
-    imgTree.src = "img/Morse_code_tree3.png";
+    imgTree.src = "img/Morse_code_tree3.png";    
+    canvas.width = 1100;
+    canvas.height = 500;
     $scope.x = 500;
     $scope.y = 45;
     $scope.radio = 36;
 
     $scope.simulation = function() {
-        canvas.width = 1100;
-        canvas.height = 500;
         ctx.drawImage(imgTree, 0, 0);
         var coordinate = {
             x: 500,
@@ -65,7 +65,7 @@ simulator.controller('ctrlSimulator', ['$scope',"$interval", function($scope, $i
     imgTree.onload = function() {
         ctx.drawImage(imgTree, 0, 0);
     };
-
+    ctx.drawImage(imgTree, 0, 0);
     // $scope.$watchGroup(["x","y","radio"],$scope.simulation);
 
     $scope.isValidCode = function(event) {
