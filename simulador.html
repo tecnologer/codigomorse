@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="simulator">
+
+<head>
+    <title>Simulador de traduccion</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <style>
+	    .view-code {
+	        font-family: -webkit-pictograph;
+	        font-size: 30pt;
+	    }
+	    .code-selected{
+	    	color: red;
+	    }
+	    .code-noSelected{
+	    	color: #22e222;
+	    }
+	    .circle{
+	    	border-radius: 190px 190px 190px 190px;
+		    -moz-border-radius: 190px 190px 190px 190px;
+		    -webkit-border-radius: 190px 190px 190px 190px;
+	    }
+    </style>
+</head>
+
+<body ng-controller="ctrlSimulator">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <a class="btn btn-primary" href="index.html">
+                            <i class="glyphicon glyphicon-arrow-left"></i>
+                            <span>Regresar</span>
+                        </a>
+                    </div>
+                    <div class="form-group">
+                        Solo se simula la traduccion de una letra a la vez:
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" ng-model="inputCode" placeholder="Codigo morse" ng-keydown="isValidCode($event)">
+                        </div>
+                        <div class="col-md-1">
+                            <i class="glyphicon glyphicon-retweet"></i>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" ng-model="outputCode" placeholder="Traduccion en alfabeto latino">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" ng-click="simulation()">
+                            <i class="glyphicon glyphicon-cog"></i>
+                            <span>Simular</span>
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <fieldset id="canvasFieldset">
+                            <legend>Simulacion</legend>
+                            <div class="form-group">
+                                <span ng-repeat="(key, value) in morseCode track by key" class="view-code" 
+                                ng-class="{'code-selected': counter == key, 'code-noSelected': counter > key}">
+                                	<i class="glyphicon glyphicon-minus" ng-show="value=='-'"></i>
+                                	<i class="glyphicon glyphicon-cd circle" ng-show="value=='.'" style="background-color: {{counter == key?'red':counter > key?'#22e222':'#333';}}"></i>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <canvas id="morseTree" width="100%"></canvas>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/morse_code.js"></script>
+<script type="text/javascript" src="js/utilities.js"></script>
+<script type="text/javascript" src="js/simulator.js"></script>
+
+</html>
