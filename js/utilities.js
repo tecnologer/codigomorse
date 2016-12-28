@@ -3,7 +3,7 @@ function translate(morseCode) {
     var mmCopy = [];
 
     if (morseCode)
-        mmCopy = morseCode.split(/\||\n/g);
+        mmCopy = morseCode.split(/\||\n|\s/g);
 
     for (var x = 0; x < mmCopy.length; x++) {
         if (mmCopy[x] !== "") {
@@ -16,6 +16,10 @@ function translate(morseCode) {
                     morseAux = morseAux && morseAux.left;
                 } else if (input[i] === "-") {
                     morseAux = morseAux && morseAux.rigth;
+                }
+                else if(input[i]==="/"){
+                    morseAux.data = " ";
+                    break;
                 }
 
 
@@ -35,4 +39,18 @@ function translate(morseCode) {
 
 function isCopy_Paste(e){
 	return e.ctrlKey && (e.key==="c" || e.key==="v" || e.key==="x" || e.key==="z" || e.key==="e" || e.key==="a");
+}
+
+function translateFromMorse(code){
+    message = "";
+
+    var inputMessage = code.split("").map(function(key){
+        return key.toUpperCase();
+    });
+    for(var i=0;i<inputMessage.length;i++){
+        var key = inputMessage[i];
+        message+= _ALPHABET_[key]+"\u0020";
+    }
+    
+    return message;
 }
